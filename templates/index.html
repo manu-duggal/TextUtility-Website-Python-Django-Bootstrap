@@ -1,0 +1,69 @@
+{% extends 'basic.html' %}
+
+{% block title %} Textutils {% endblock title %}
+{% block css %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+{% endblock css %}
+{% block body %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Welcome!</strong> You can play with your text here and alter it according to your requirements.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+
+    <div class="container">
+      <form action='analyze/' method='post'> {% csrf_token %}
+      <div class="form-group my-3">
+        <h3><span id="typed"></span></h3>
+        <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+      </div>
+
+      <div class="form-check form-switch">
+        <input name='removepunc' class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Remove Punc</label>
+      </div>
+
+      <div class="form-check form-switch">
+        <input name='uppercase' class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault2">
+        <label class="form-check-label" for="flexSwitchCheckDefault2">Upper case</label>
+      </div>
+
+      <div class="form-check form-switch">
+        <input name='newlineremove' class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault3">
+        <label class="form-check-label" for="flexSwitchCheckDefault3">New line remover</label>
+      </div>
+
+      <div class="form-check form-switch">
+        <input name='spaceremove' class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault4">
+        <label class="form-check-label" for="flexSwitchCheckDefault4">Extra Space remover</label>
+      </div>
+
+      <div class="form-check form-switch">
+        <input name='charcount' class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault5">
+        <label class="form-check-label" for="flexSwitchCheckDefault5">Character Counter</label>
+      </div>
+
+      <button type="submit" class="btn btn-success mt-3">Analyze text</button>
+    </form>
+    </div>
+
+    <div id="typed-strings">
+    </div>
+
+    <script>
+      var typed = new Typed('#typed',{
+                     strings:["You can do anything with your text here!","Enter your text here and let Text Utils do the magic!"],
+                     backSpeed: 15,
+                     smartBackspace: true,
+                     backDelay: 1200,
+                     startDelay: 1000,
+                     typeSpeed: 25,
+                     loop: false,
+ 
+                   });
+     </script>
+ 
+
+
+
+{% endblock body %}

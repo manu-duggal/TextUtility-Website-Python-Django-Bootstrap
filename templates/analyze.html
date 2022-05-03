@@ -1,0 +1,21 @@
+{% extends 'basic.html' %}
+
+{% block title %} Analyzed text {% endblock title %}
+
+{% block body %}
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Woohoo!</strong> Your text has been analyzed.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+
+    <div class="container">
+      <h2>Your final text</h1>
+      <h3>
+        <pre>{{text}}<br>{{freq}}</pre>
+        
+      </h2>
+    </div>
+
+{% endblock body %}
